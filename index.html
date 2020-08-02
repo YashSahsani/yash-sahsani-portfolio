@@ -150,7 +150,7 @@
 						<h2>Have me make stuff for you.</h2>
 					</header><div class="row">
 						<div class="col-12">
-							<form action="https://formspree.io/xbjzwyon" method="POST">
+							<form name="contact_me" action="https://formspree.io/xbjzwyon" method="POST">
 								<div class="row">
 									<div class="col-6 col-12-small">
 										<input type="text" name="name" id="name" placeholder="Name" />
@@ -166,7 +166,7 @@
 									</div>
 									<div class="col-12">
 										<ul class="actions">
-											<li><input type="submit" value="Send Message" /></li>
+											<li><input type="submit" value="Send Message"  onclick="ValidateEmail(document.contact_me.email)"/></li>
 											<li><input type="reset" value="Clear Form" class="alt" /></li>
 										</ul>
 									</div>
@@ -188,6 +188,25 @@
 			</article>
 
 		<!-- Scripts -->
+			<script>
+				function ValidateEmail(inputText)
+{
+  console.log(document.contact_me.email.value);
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(inputText.value.match(mailformat))
+{
+document.contact_me.email.focus();
+return true;
+}
+else
+{
+alert("You have entered an invalid email address!");
+document.contact_me.email.focus();
+return false;
+}
+}
+			</script>
+		    <script src="assets/js/email.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
